@@ -2,29 +2,33 @@
     "strict": true,
     "debug": true,
     "sp": {
-        "entityId": "https://<sp_domain>/metadata/",
+        "entityId": "https://hstalks.com/shibboleth",
         "assertionConsumerService": {
-            "url": "https://<sp_domain>/?acs",
+            "url": "http://localhost:8000/?acs",
+            "url-local": "https://local.bazzisoft.com/?acs",
+            "url-openathens": "https://hstalks.com/Shibboleth.sso/SAML2/POST",
             "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
         },
         "singleLogoutService": {
-            "url": "https://<sp_domain>/?sls",
+            "url": "http://localhost:8000/?sls",
+            "url-local": "https://local.bazzisoft.com/?sls",
+            "url-openathens": "https://hstalks.com/Shibboleth.sso/SLO/Redirect",
             "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
         },
         "NameIDFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
-        "x509cert": "",
-        "privateKey": ""
+        "x509cert": "MIIDfzCCAmegAwIBAgIUZd923H9tIgw4+D7MM8QQwS56Is4wDQYJKoZIhvcNAQELBQAwTzELMAkGA1UEBhMCR0IxEzARBgNVBAgMClNvbWUtU3RhdGUxFTATBgNVBAoMDEhTVGFsa3MgRGVtbzEUMBIGA1UEAwwLaHN0YWxrcy5jb20wHhcNMjQwMjIyMTE1MDQ3WhcNMzQwMjIxMTE1MDQ3WjBPMQswCQYDVQQGEwJHQjETMBEGA1UECAwKU29tZS1TdGF0ZTEVMBMGA1UECgwMSFNUYWxrcyBEZW1vMRQwEgYDVQQDDAtoc3RhbGtzLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKmrmLiYRGnsv7y+GXKi7qUnyYCDiSuOiTBzJ9CDLQt+iBMVTycICe5AOuDW6lHLQSdD6tGjs9Ami8pQE3AlVgEo44bK7xV1iGt9CEeQ78BgM4iYFYUrsDBIQbgN+46CT5oahFgdDoz/P3yYi4aBrOsj6l0oBgwLxtf2aenq0eV14bz5CTYQe7zYfSlgG/CojJwyd8g2/Fa13/cpHrwbukSD3baxZBoWBqO2i14k3E9Nf1qATxvMEr3BqOQKHeVQHK0/ZIhIGzByr6/mDKBbX4iKzpzrN5O5WZqAOEzoIv/9D34GMzfFK7d2z0zf4QMVDFCTYCDuPWT8Utjc+Ah6aWsCAwEAAaNTMFEwHQYDVR0OBBYEFDBzeGKZQqukxN10elaopn9QtBWrMB8GA1UdIwQYMBaAFDBzeGKZQqukxN10elaopn9QtBWrMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBACqOde4nHV1FSY56KcSO1RWpZ67VagdvrTuRbYfkDRTFSW9X402ptVzw7gAVVuINiszTPP8b4tEcX4U+UltMP8J5KzHlPZrPLuDXDtnhiENbdXEaPc9qlHllfOMRQ393akDWEMSZSz8RTtdCl9OXqbnfJS+AjcfENKGKGD+nDNLI81B/VTZY5OZGiGXs9RbuR2V+8yRGwAcem7D/VfmioY9pOzzUVRCr45Jwmwh06QelK39N2yd80C6jHvZs7EIWrVxfO8aB6tfWsqYTQEQy1ZEaNUtANm5fMTP/19jkZmb2+gg6wuFceJNugk0YWUvzGicaxScNhlKdr/xNQrx6xuY=",
+        "privateKey": "MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCpq5i4mERp7L+8vhlyou6lJ8mAg4krjokwcyfQgy0LfogTFU8nCAnuQDrg1upRy0EnQ+rRo7PQJovKUBNwJVYBKOOGyu8VdYhrfQhHkO/AYDOImBWFK7AwSEG4DfuOgk+aGoRYHQ6M/z98mIuGgazrI+pdKAYMC8bX9mnp6tHldeG8+Qk2EHu82H0pYBvwqIycMnfINvxWtd/3KR68G7pEg922sWQaFgajtoteJNxPTX9agE8bzBK9wajkCh3lUBytP2SISBswcq+v5gygW1+Iis6c6zeTuVmagDhM6CL//Q9+BjM3xSu3ds9M3+EDFQxQk2Ag7j1k/FLY3PgIemlrAgMBAAECggEAF5Ijqs1Yf8ComF9uaJsS/TWsTCK53Se1jloJF3IJwXWIEOKeduUqgANDSrYAonFSsVJBnnMYCVw5glcihCtjqdCU30Z09W25EHmzu0F61SZoMlsybig2F1cKbjffERqwVU/Gv/j1awgQuU314C9Gpvn71oo3YNgH/TuZ1inNlAtUbUgckJcOvtesmn7UFNqlh8eEY5CD7vcuXKrqXbfvVr4j7sG8kMMQkaCQOg+sgJ3WqWyeQ05XzilF9kIKsS8HGZqgMGFwJ3hzUSHWMhUMUNrvkZMC9gx/8Tnw9HCGZCRzWRvBVYTPlkAT39tK65iKiR0d2smide6JX7/IcQsrzQKBgQC2NWCeJiOQHHkhuQwgtBP8XhMsfgF1AWSuXFV7VA9vIXA39NN3ERmMIKktCY/vHn7i+sIHiGaYOA4wQcq1vcqH9mTz+SLPjSzsZK1fftd/gvQgp57sgxEPqVLjaFNffyJxi1nTGuIsdWkVEfmZXTZZCTERb/5+zj2z6TqqZ9/ddQKBgQDuYk9Ucx9IyLlZqZ7NFwW6OZDYAQG1EVMf7D+f2ILr7LJ7Hon4fkM6ZccXe9K6X5JcOsKh8vPLZ0oNs0XjssitLFZ85xvx/HlLheY2DbowE45fcEFwTjygGm3tc0QrFdA2rt0tADAxJtEWaqrREET2LmIDVnQEuixe50dO4ivvXwKBgQCiiRjn2oOswQl5AJYF8j1FyTF3Zeus0RJbyzfhrMmby4tMDxQ3yUQt0NC4wSfpGR39IczFZXKHZLGbcIT//A5XnH7Pd7UKyheBxAk3/3ECaPGW04+b0Qr+GoA7JUwCCunRuYnmG7wYBqA3UHKD0Tdy0xU3Rd0Shq1Z+LoBWmnDJQKBgQCzwLnlCjIK5iCttbOjHrsY45OO7aNl77xok/KeC9sdH4yuPib3k+4JuPlZgesy0iJBHaXqDJM9S5ORpR8MRaIAwzAsWvC9lg24ny0qkUtWOUjgOnt9veEFMSi3JnW+r2Ij+dOZvUyZo5WCe8h2gPgfUnZh4ez2K5SNs4QXvYA3rQKBgCA1no/2l49/yWbwl7hQJPyRi20vabrFTT2l1vQiAo9UHOh5R4zznK/IEpMMVbvzjFK+/++GwXqyREn/snoJQGMnqYOHmeUJQAe70pE7fIPyGqBdv4JkUtMsdnwAlIZRhuHo4pyAXOgCXArDsWelLt/5ykENXNFCj0+qgv+/Y5dv"
     },
     "idp": {
-        "entityId": "https://app.onelogin.com/saml/metadata/<onelogin_connector_id>",
+        "entityId": "http://example.com/saml/acs/example",
         "singleSignOnService": {
-            "url": "https://app.onelogin.com/trust/saml2/http-post/sso/<onelogin_connector_id>",
+            "url": "http://idp.oktadev.com",
             "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
         },
         "singleLogoutService": {
-            "url": "https://app.onelogin.com/trust/saml2/http-redirect/slo/<onelogin_connector_id>",
+            "url": "http://idp.oktadev.com/logout",
             "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
         },
-        "x509cert": "<onelogin_connector_cert>"
+        "x509cert": "MIIDPDCCAiQCCQDydJgOlszqbzANBgkqhkiG9w0BAQUFADBgMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZyYW5jaXNjbzEQMA4GA1UEChMHSmFua3lDbzESMBAGA1UEAxMJbG9jYWxob3N0MB4XDTE0MDMxMjE5NDYzM1oXDTI3MTExOTE5NDYzM1owYDELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBGcmFuY2lzY28xEDAOBgNVBAoTB0phbmt5Q28xEjAQBgNVBAMTCWxvY2FsaG9zdDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMGvJpRTTasRUSPqcbqCG+ZnTAurnu0vVpIG9lzExnh11o/BGmzu7lB+yLHcEdwrKBBmpepDBPCYxpVajvuEhZdKFx/Fdy6j5mH3rrW0Bh/zd36CoUNjbbhHyTjeM7FN2yF3u9lcyubuvOzr3B3gX66IwJlU46+wzcQVhSOlMk2tXR+fIKQExFrOuK9tbX3JIBUqItpI+HnAow509CnM134svw8PTFLkR6/CcMqnDfDK1m993PyoC1Y+N4X9XkhSmEQoAlAHPI5LHrvuujM13nvtoVYvKYoj7ScgumkpWNEvX652LfXOnKYlkB8ZybuxmFfIkzedQrbJsyOhfL03cMECAwEAATANBgkqhkiG9w0BAQUFAAOCAQEAeHwzqwnzGEkxjzSD47imXaTqtYyETZow7XwBc0ZaFS50qRFJUgKTAmKS1xQBP/qHpStsROT35DUxJAE6NY1Kbq3ZbCuhGoSlY0L7VzVT5tpu4EY8+Dq/u2EjRmmhoL7UkskvIZ2n1DdERtd+YUMTeqYl9co43csZwDno/IKomeN5qaPc39IZjikJ+nUC6kPFKeu/3j9rgHNlRtocI6S1FdtFz9OZMQlpr0JbUt2T3xS/YoQJn6coDmJL5GTiiKM6cOe+Ur1VwzS1JEDbSS2TWWhzq8ojLdrotYLGd9JOsoQhElmz+tMfCFQUFLExinPAyy7YHlSiVX13QH2XTu/iQQ=="
     }
 }

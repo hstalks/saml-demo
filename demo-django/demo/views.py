@@ -1,16 +1,35 @@
+import json
+import os
+
 from django.conf import settings
-from django.urls import reverse
-from django.http import (HttpResponse, HttpResponseRedirect,
-                         HttpResponseServerError)
+from django.http import HttpResponse
+from django.http import HttpResponseRedirect
+from django.http import HttpResponseServerError
 from django.shortcuts import render
+from django.urls import reverse
+import requests
 
 from onelogin.saml2.auth import OneLogin_Saml2_Auth
+from onelogin.saml2.idp_metadata_parser import OneLogin_Saml2_IdPMetadataParser
 from onelogin.saml2.settings import OneLogin_Saml2_Settings
 from onelogin.saml2.utils import OneLogin_Saml2_Utils
 
+# openathens
+# idp_metadata = requests.get("https://login.openathens.net/saml/2/metadata-idp/hstalks.com", timeout=30)
+# okta test idp
+idp_metdata = requests.get("http://idp.oktadev.com/metadata")
 
 def init_saml_auth(req):
-    auth = OneLogin_Saml2_Auth(req, custom_base_path=settings.SAML_FOLDER)
+    saml_settings = {}
+    with open(os.path.join(settings.SAML_FOLDER, "settings.json")) as f:
+        saml_settings.update(json.load(f))
+    with open(os.path.join(settings.SAML_FOLDER, "advanced_settings.json")) as f:
+        saml_settings.update(json.load(f))
+    del saml_settings["idp"]
+
+    idp_settings = OneLogin_Saml2_IdPMetadataParser.parse(idp_metdata.text)
+    saml_settings = OneLogin_Saml2_IdPMetadataParser.merge_settings(saml_settings, idp_settings)
+    auth = OneLogin_Saml2_Auth(req, saml_settings)
     return auth
 
 

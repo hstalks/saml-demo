@@ -13,23 +13,23 @@
         "allowSingleLabelDomains": false,
         "signatureAlgorithm": "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256",
         "digestAlgorithm": "http://www.w3.org/2001/04/xmlenc#sha256",
-        "rejectDeprecatedAlgorithm": true
+        "rejectDeprecatedAlgorithm": false
     },
     "contactPerson": {
         "technical": {
-            "givenName": "technical_name",
-            "emailAddress": "technical@example.com"
+            "givenName": "HSTalks IT",
+            "emailAddress": "it@hstalks.com"
         },
         "support": {
-            "givenName": "support_name",
-            "emailAddress": "support@example.com"
+            "givenName": "HSTalks IT",
+            "emailAddress": "it@hstalks.com"
         }
     },
     "organization": {
         "en-US": {
-            "name": "sp_test",
-            "displayname": "SP test",
-            "url": "http://sp.example.com"
+            "name": "HSTalks SAML Demo",
+            "displayname": "HSTalks SAML Demo",
+            "url": "https://hstalks.com"
         }
     }
 }

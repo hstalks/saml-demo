@@ -17,7 +17,7 @@ __pycache_
 /.eggs
 /build
 /dist
-/venv
+venv
 .coverage
 .pypirc
 /.idea
@@ -31,3 +31,4 @@ poetry.lock
 
 settings.py
 advanced_settings.py
+*.code-workspace
